@@ -1,6 +1,9 @@
 {
-  "name": "file_glob_search",
+  "name": "single_find_and_replace",
   "arguments": {
-    "pattern": "**/*.{js,jsx,ts,tsx}"
+    "filepath": "src/components/Three.js",
+    "old_string": "<Canvas>",
+    "new_string": "<Canvas gl={{ preserveDrawingBuffer: true, powerPreference: 'high-performance' }}>",
+    "replace_all": false
   }
 }
