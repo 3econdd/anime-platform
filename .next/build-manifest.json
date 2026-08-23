@@ -1,9 +1,8 @@
 {
-  "name": "single_find_and_replace",
+  "name": "create_new_file",
   "arguments": {
-    "filepath": "src/components/Three.js",
-    "old_string": "<Canvas>",
-    "new_string": "<Canvas gl={{ preserveDrawingBuffer: true, powerPreference: 'high-performance' }}>",
-    "replace_all": false
+    "filepath": "src/app/api/proxy-image/route.ts",
+    "contents": "import { NextApiRequest, NextApiResponse } from 'next';\n\nexport default async function handler(req: NextApiRequest, res: NextApiResponse) {\n  const url = req.query.url?.toString();\n  if (!url) {\n    res.status(400).json({ message: 'URL query parameter is required' });\n    return;\n  }\n\n  try {\n    const response = await fetch(url);\n    const buffer = await response.buffer();\n\n    res.setHeader('Content-Type', response.headers.get('content-type') || 'application/octet-stream');\n    res.setHeader('Access-Control-Allow-Origin', '*');\n    res.status(200).send(buffer);\n  } catch (error) {\n    res.status(500).json({ message: 'Error fetching image', error });\n  }\n}"
   }
 }
+
