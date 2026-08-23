@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AniDub - English Dubbed Anime Streaming Platform"
+    />
+    <title>AniDub | English Dubbed Anime Streaming</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="theme-dark">
+    <div class="app-shell">
+      <header class="topbar glass-panel">
+        <div class="brand-wrap">
+          <div class="brand-mark" aria-label="AniDub logo">A</div>
+          <div class="brand-text">
+            <span class="brand-name">AniDub</span>
+            <span class="brand-subtitle">English Dub</span>
+          </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#" class="nav-link active">Home</a>
+          <a href="#" class="nav-link">Dubbed Anime</a>
+          <a href="#" class="nav-link">Movies</a>
+          <a href="#" class="nav-link">Genres</a>
+          <a href="#" class="nav-link">Schedule</a>
+        </nav>
+
+        <div class="header-tools">
+          <div class="search-shell">
+            <span class="search-icon">⌕</span>
+            <input
+              id="globalSearch"
+              type="search"
+              placeholder="Search anime, genre, year, rating..."
+              aria-label="Search anime"
+            />
+            <div id="searchResults" class="search-results hidden" aria-live="polite"></div>
+          </div>
+
+          <div class="theme-picker-wrap">
+            <button class="ghost-button theme-trigger" type="button" aria-label="Open theme menu">
+              <span class="theme-dot"></span>
+              Accent
+            </button>
+            <div class="theme-menu hidden" aria-label="Accent color menu">
+              <button class="theme-option active" data-accent="#8A2BE2" data-name="Neon Purple" type="button">
+                <span class="swatch purple"></span> Neon Purple
+              </button>
+              <button class="theme-option" data-accent="#00F3FF" data-name="Cyber Cyan" type="button">
+                <span class="swatch cyan"></span> Cyber Cyan
+              </button>
+              <button class="theme-option" data-accent="#FF0055" data-name="Crimson Red" type="button">
+                <span class="swatch red"></span> Crimson Red
+              </button>
+            </div>
+          </div>
+
+          <button class="profile-chip" type="button" id="openProfile">
+            <span class="profile-avatar">N</span>
+            <span class="profile-meta">
+              <strong>Nia</strong>
+              <small>Premium</small>
+            </span>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero-section">
+          <div id="heroCarousel" class="hero-carousel" aria-live="polite"></div>
+          <div class="hero-controls">
+            <button class="circle-button" id="prevSlide" type="button" aria-label="Previous slide">←</button>
+            <div id="heroDots" class="hero-dots" aria-label="Hero slide navigation"></div>
+            <button class="circle-button" id="nextSlide" type="button" aria-label="Next slide">→</button>
+          </div>
+        </section>
+
+        <div class="catalog-toolbar glass-panel">
+          <div class="filter-group" id="catalogFilters">
+            <button class="filter-pill active" data-category="updated" type="button">Recently Updated</button>
+            <button class="filter-pill" data-category="trending" type="button">Trending</button>
+            <button class="filter-pill" data-category="rated" type="button">Top Rated</button>
+            <button class="filter-pill" data-category="recommended" type="button">Recommended for You</button>
+          </div>
+          <div class="genre-group" id="genreFilters"></div>
+        </div>
+
+        <section class="content-section">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Fresh from the dub booth</p>
+              <h2>Recently Updated Dubs</h2>
+            </div>
+            <button class="ghost-button" type="button">View All</button>
+          </div>
+          <div id="recentlyUpdated" class="card-grid"></div>
+        </section>
+
+        <section class="content-section">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Crowd favorites</p>
+              <h2>Trending Now</h2>
+            </div>
+            <button class="ghost-button" type="button">Explore</button>
+          </div>
+          <div id="trendingNow" class="card-grid"></div>
+        </section>
+
+        <section class="content-section">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Critics choice</p>
+              <h2>Top Rated</h2>
+            </div>
+            <button class="ghost-button" type="button">All Rankings</button>
+          </div>
+          <div id="topRated" class="card-grid"></div>
+        </section>
+
+        <section class="content-section">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Recommended for your watchlist</p>
+              <h2>For You</h2>
+            </div>
+            <button class="ghost-button" type="button">Refresh Picks</button>
+          </div>
+          <div id="recommended" class="card-grid"></div>
+        </section>
+
+        <section class="player-section">
+          <div class="video-shell glass-panel">
+            <div class="video-stage" id="videoStage">
+              <div class="video-overlay">
+                <div class="video-topbar">
+                  <span class="live-pill">LIVE NOW</span>
+                  <span class="episode-label" id="playerEpisodeLabel">EP 1 • English Dub</span>
+                </div>
+
+                <div class="video-meta-panel">
+                  <p class="eyebrow">Now playing</p>
+                  <h3 id="playerTitle">Solo Leveling</h3>
+                  <div class="movie-stats">
+                    <span id="playerMeta">2024 • Action • 12 Episodes</span>
+                  </div>
+                  <button class="play-toggle" type="button" aria-label="Play video">▶</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="player-controls">
+              <div class="control-row primary-controls">
+                <button class="mini-button" type="button" id="videoPlayToggle">▶</button>
+                <div class="progress-wrap">
+                  <div class="progress-bar"><span class="progress-fill"></span></div>
+                </div>
+                <span class="timecode">22:10 / 24:00</span>
+              </div>
+
+              <div class="control-row secondary-controls">
+                <div class="control-group">
+                  <button class="mini-button" type="button">🔊</button>
+                  <input id="volumeSlider" type="range" min="0" max="100" value="72" aria-label="Volume" />
+                </div>
+
+                <div class="control-group compact">
+                  <label for="audioTrack">Audio</label>
+                  <select id="audioTrack">
+                    <option value="English Dub">English Dub</option>
+                    <option value="Japanese Sub">Japanese Sub</option>
+                    <option value="Original">Original</option>
+                  </select>
+                </div>
+
+                <div class="control-group compact">
+                  <label for="speedSelect">Speed</label>
+                  <select id="speedSelect">
+                    <option value="0.5">0.5x</option>
+                    <option value="1" selected>1.0x</option>
+                    <option value="1.25">1.25x</option>
+                    <option value="1.5">1.5x</option>
+                    <option value="2.0">2.0x</option>
+                  </select>
+                </div>
+
+                <div class="control-group compact">
+                  <label for="qualitySelect">Quality</label>
+                  <select id="qualitySelect">
+                    <option value="Auto" selected>Auto</option>
+                    <option value="1080p">1080p</option>
+                    <option value="720p">720p</option>
+                    <option value="480p">480p</option>
+                  </select>
+                </div>
+
+                <button class="ghost-button report-button" type="button" id="openIssueModal">Report Broken Video</button>
+              </div>
+            </div>
+          </div>
+
+          <aside class="episode-panel glass-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Stream Servers</p>
+                <h3>Watch Options</h3>
+              </div>
+            </div>
+
+            <div class="server-tabs" role="tablist" aria-label="Stream server tabs">
+              <button class="server-tab active" type="button" data-server="Server 1">Server 1: HD Dub</button>
+              <button class="server-tab" type="button" data-server="Server 2">Server 2: FastStream</button>
+              <button class="server-tab" type="button" data-server="Server 3">Server 3: Backup Mirror</button>
+            </div>
+
+            <div class="episode-toolbar">
+              <input id="episodeSearch" type="search" placeholder="Filter episodes" aria-label="Filter episodes" />
+            </div>
+
+            <div id="episodeList" class="episode-list"></div>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <div id="authModal" class="modal-backdrop hidden" aria-hidden="true">
+      <div class="modal-card auth-modal-card">
+        <button class="close-modal" type="button" data-close="authModal" aria-label="Close auth modal">✕</button>
+        <div class="modal-header">
+          <p class="eyebrow">Member access</p>
+          <h3 id="authHeading">Welcome back</h3>
+        </div>
+
+        <div class="auth-tabs" role="tablist" aria-label="Authentication tabs">
+          <button class="auth-tab active" data-auth-tab="login" type="button">Login</button>
+          <button class="auth-tab" data-auth-tab="signup" type="button">Sign Up</button>
+        </div>
+
+        <div class="auth-methods">
+          <button class="method-button active" data-method="email" type="button">Email</button>
+          <button class="method-button" data-method="phone" type="button">Phone</button>
+        </div>
+
+        <form id="authForm" class="auth-form" autocomplete="off">
+          <div class="input-row">
+            <label>
+              <span>Email Address</span>
+              <input type="email" placeholder="name@domain.com" class="auth-field" />
+            </label>
+          </div>
+          <div class="input-row">
+            <label>
+              <span>Password</span>
+              <input type="password" placeholder="Enter your password" class="auth-field" />
+            </label>
+          </div>
+          <div class="input-row phone-row hidden">
+            <label>
+              <span>Phone Number</span>
+              <input type="tel" placeholder="+1 (555) 123-4567" class="auth-field" />
+            </label>
+          </div>
+          <div class="auth-actions">
+            <label class="remember-me"><input type="checkbox" checked /> Keep me signed in</label>
+            <button class="text-link" type="button">Forgot Password?</button>
+          </div>
+          <button class="primary-button" type="submit">Continue</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="otpModal" class="modal-backdrop hidden" aria-hidden="true">
+      <div class="modal-card otp-modal-card">
+        <button class="close-modal" type="button" data-close="otpModal" aria-label="Close otp modal">✕</button>
+        <div class="modal-header centered">
+          <p class="eyebrow">Secure access</p>
+          <h3>Verification Code</h3>
+        </div>
+        <p class="otp-copy">A 6-digit verification code was sent to your email ending in <strong>***@gmail.com</strong>.</p>
+
+        <div class="otp-boxes" aria-label="One-time passcode fields">
+          <input class="otp-digit" type="text" maxlength="1" inputmode="numeric" aria-label="Digit 1" />
+          <input class="otp-digit" type="text" maxlength="1" inputmode="numeric" aria-label="Digit 2" />
+          <input class="otp-digit" type="text" maxlength="1" inputmode="numeric" aria-label="Digit 3" />
+          <input class="otp-digit" type="text" maxlength="1" inputmode="numeric" aria-label="Digit 4" />
+          <input class="otp-digit" type="text" maxlength="1" inputmode="numeric" aria-label="Digit 5" />
+          <input class="otp-digit" type="text" maxlength="1" inputmode="numeric" aria-label="Digit 6" />
+        </div>
+
+        <div class="otp-actions">
+          <button class="primary-button" id="verifyOtp" type="button">Verify & Continue</button>
+          <button class="text-link" id="resendOtp" type="button">Resend Code in 30s</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="profileModal" class="modal-backdrop hidden" aria-hidden="true">
+      <div class="modal-card profile-modal-card">
+        <button class="close-modal" type="button" data-close="profileModal" aria-label="Close profile modal">✕</button>
+        <div class="modal-header profile-header">
+          <div class="profile-header-identity">
+            <span class="profile-avatar large">N</span>
+            <div>
+              <p class="eyebrow">Account</p>
+              <h3>Nia Sato</h3>
+            </div>
+          </div>
+          <button class="ghost-button" type="button">Upgrade Plan</button>
+        </div>
+
+        <div class="dashboard-tabs" role="tablist" aria-label="User dashboard tabs">
+          <button class="dashboard-tab active" data-dashboard-tab="appearance" type="button">Appearance</button>
+          <button class="dashboard-tab" data-dashboard-tab="playback" type="button">Playback</button>
+          <button class="dashboard-tab" data-dashboard-tab="security" type="button">Security & Account</button>
+        </div>
+
+        <div class="dashboard-panel active" data-panel="appearance">
+          <div class="settings-grid">
+            <div class="setting-card">
+              <h4>Theme</h4>
+              <div class="toggle-row">
+                <span>Light / Dark</span>
+                <button class="switcher" id="themeToggle" type="button" aria-label="Toggle dark mode">
+                  <span class="switch-knob"></span>
+                </button>
+              </div>
+            </div>
+
+            <div class="setting-card">
+              <h4>Accent Palette</h4>
+              <div class="accent-pickers">
+                <button class="accent-swatch purple active" data-accent="#8A2BE2" type="button" aria-label="Neon Purple accent"></button>
+                <button class="accent-swatch cyan" data-accent="#00F3FF" type="button" aria-label="Cyber Cyan accent"></button>
+                <button class="accent-swatch red" data-accent="#FF0055" type="button" aria-label="Crimson Red accent"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-panel" data-panel="playback">
+          <div class="settings-grid stacked">
+            <div class="setting-card">
+              <h4>Default Resolution</h4>
+              <select id="prefResolution">
+                <option value="auto">Auto</option>
+                <option value="1080p">1080p</option>
+                <option value="720p">720p</option>
+                <option value="480p">480p</option>
+              </select>
+            </div>
+            <div class="setting-card">
+              <h4>Preferred Audio</h4>
+              <div class="option-list">
+                <label><input type="radio" name="audioPref" checked /> English Dub Priority</label>
+                <label><input type="radio" name="audioPref" /> Original Japanese</label>
+                <label><input type="radio" name="audioPref" /> Stereo Mix</label>
+              </div>
+            </div>
+            <div class="setting-card toggles-card">
+              <div class="toggle-row"><span>Auto-Play</span><button class="switcher active" type="button"><span class="switch-knob"></span></button></div>
+              <div class="toggle-row"><span>Auto-Skip Intro / Outro</span><button class="switcher active" type="button"><span class="switch-knob"></span></button></div>
+              <div class="toggle-row"><span>Subtitles Overlay</span><button class="switcher" type="button"><span class="switch-knob"></span></button></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-panel" data-panel="security">
+          <div class="settings-grid stacked">
+            <div class="setting-card">
+              <h4>2FA Status</h4>
+              <div class="badge-row">
+                <span class="status-badge enabled">Enabled</span>
+                <span class="status-detail">Protected by app authenticator</span>
+              </div>
+            </div>
+            <div class="setting-card">
+              <h4>Linked Accounts</h4>
+              <div class="pill-stack">
+                <span class="tag-badge">Email: nia@satodev.com</span>
+                <span class="tag-badge">Phone: +1 555 919 1102</span>
+              </div>
+            </div>
+            <div class="setting-card">
+              <h4>Change Password</h4>
+              <form class="password-form">
+                <input type="password" placeholder="Current password" />
+                <input type="password" placeholder="New password" />
+                <input type="password" placeholder="Confirm new password" />
+                <button class="primary-button" type="submit">Update Password</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="issueModal" class="modal-backdrop hidden" aria-hidden="true">
+      <div class="modal-card issue-modal-card">
+        <button class="close-modal" type="button" data-close="issueModal" aria-label="Close issue modal">✕</button>
+        <div class="modal-header">
+          <p class="eyebrow">Support</p>
+          <h3>Report Video Issue</h3>
+        </div>
+        <form class="issue-form">
+          <label>
+            <span>Issue Type</span>
+            <select>
+              <option>Audio out of sync</option>
+              <option>Playback stutter</option>
+              <option>Subtitle issue</option>
+              <option>Wrong episode</option>
+            </select>
+          </label>
+          <label>
+            <span>Detailed Notes</span>
+            <textarea rows="4" placeholder="Tell us what happened while streaming..."></textarea>
+          </label>
+          <button class="primary-button" type="submit">Send Report</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

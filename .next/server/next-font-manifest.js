@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/media/temo/02EA058DEA057E63/vs code/free web/src/app/[lang]/layout\":[\"static/media/e4af272ccee01ff0-s.p.woff2\",\"static/media/a6c4972a91679e5a-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"

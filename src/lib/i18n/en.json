@@ -1,0 +1,73 @@
+{
+  "nav": {
+    "home": "Home",
+    "anime": "Anime",
+    "movies": "Movies",
+    "genres": "Genres",
+    "schedule": "Schedule",
+    "profile": "Profile"
+  },
+  "hero": {
+    "trending": "Trending",
+    "play": "Play",
+    "bookmark": "Bookmark",
+    "geoDub": "GEO DUB",
+    "engDub": "ENG DUB",
+    "continue": "Continue"
+  },
+  "common": {
+    "search": "Search anime, genre, year, rating...",
+    "rating": "Rating",
+    "year": "Year",
+    "status": "Status",
+    "ongoing": "Ongoing",
+    "completed": "Completed",
+    "language": "Language",
+    "georgian": "Georgian",
+    "english": "English",
+    "both": "Both",
+    "watch": "Watch",
+    "bookmark": "Bookmark",
+    "comments": "Comments",
+    "save": "Save",
+    "login": "Login",
+    "signup": "Sign up",
+    "logout": "Logout"
+  },
+  "filters": {
+    "all": "All",
+    "genre": "Genre",
+    "releaseYear": "Release Year",
+    "audioLanguage": "Audio Language",
+    "sortBy": "Sort by",
+    "mostPopular": "Most Popular",
+    "highestRated": "Highest Rated",
+    "newest": "Newest"
+  },
+  "player": {
+    "liveNow": "LIVE NOW",
+    "episode": "Episode",
+    "quality": "Quality",
+    "speed": "Speed",
+    "audio": "Audio",
+    "georgia": "Georgian",
+    "english": "English",
+    "skipIntro": "Skip Intro",
+    "skipOutro": "Skip Outro",
+    "fullscreen": "Fullscreen",
+    "autoplay": "Autoplay",
+    "saved": "Progress saved"
+  },
+  "auth": {
+    "welcome": "Welcome",
+    "email": "Email",
+    "password": "Password",
+    "continueGoogle": "Continue with Google"
+  },
+  "profile": {
+    "savedAnimes": "Saved anime",
+    "watchHistory": "Watch history",
+    "languageSetting": "Language setting",
+    "favorite": "Favorite"
+  }
+}

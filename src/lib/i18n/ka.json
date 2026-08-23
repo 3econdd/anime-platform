@@ -1,0 +1,73 @@
+{
+  "nav": {
+    "home": "მთავარი",
+    "anime": "ანიმე",
+    "movies": "ფილმები",
+    "genres": "ჟანრები",
+    "schedule": "განრიგი",
+    "profile": "პროფილი"
+  },
+  "hero": {
+    "trending": "ტენდენცია",
+    "play": "დაკვრა",
+    "bookmark": "რჩეულები",
+    "geoDub": "GEO DUB",
+    "engDub": "ENG DUB",
+    "continue": "გაგრძელება"
+  },
+  "common": {
+    "search": "მოძებნეთ ანიმე, ჟანრი, წელი, რეიტინგი...",
+    "rating": "რეიტინგი",
+    "year": "წელი",
+    "status": "სტატუსი",
+    "ongoing": "მიმდინარე",
+    "completed": "დასრულებული",
+    "language": "ენა",
+    "georgian": "ქართული",
+    "english": "English",
+    "both": "ორივე",
+    "watch": "ყურება",
+    "bookmark": "რჩეულებში",
+    "comments": "תגובות",
+    "save": "შენახვა",
+    "login": "შესვლა",
+    "signup": "რეგისტრაცია",
+    "logout": "გასვლა"
+  },
+  "filters": {
+    "all": "ყველა",
+    "genre": "ჟანრი",
+    "releaseYear": "გამოშვების წელი",
+    "audioLanguage": "აუდიო ენა",
+    "sortBy": "სორტირება",
+    "mostPopular": "ყველაზე პოპულარული",
+    "highestRated": "ყველაზე მაღალი რეიტინგი",
+    "newest": "ყველაზე ახალი"
+  },
+  "player": {
+    "liveNow": "ახლა ცოცხლად",
+    "episode": "ეპიზოდი",
+    "quality": "ხარისხი",
+    "speed": "სიჩქარე",
+    "audio": "აუდიო",
+    "georgia": "ქართული",
+    "english": "English",
+    "skipIntro": "საწყისი გამოტოვება",
+    "skipOutro": "ბოლო გამოტოვება",
+    "fullscreen": "სრული ეკრანი",
+    "autoplay": "ავტომატური",
+    "saved": "მოწერილი პროგრესი"
+  },
+  "auth": {
+    "welcome": "მოგესალმებით",
+    "email": "ელ. ფოსტა",
+    "password": "პაროლი",
+    "continueGoogle": "Google-ით გაგრძელება"
+  },
+  "profile": {
+    "savedAnimes": "შენახული ანიმე",
+    "watchHistory": "ნახვის ისტორია",
+    "languageSetting": "ენის პარამეტრი",
+    "favorite": "რჩეული"
+  }
+}
